@@ -1,0 +1,39 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /gateway-service
+
+spring:
+  application:
+    name: gateway-service
+  main:
+    web-application-type: reactive
+  #  cloud:
+  #    gateway:
+  #      routes:
+  #        - id: resource-service
+  #          uri: http://localhost:8080
+  #          predicates:
+  #            - Path=/resource-service/**
+
+  cloud:
+    gateway:
+      routes:
+        - id: resource
+          uri: lb://resource-service
+          predicates:
+            - Path=/gateway-service/**
+          filters:
+            - StripPrefix=1
+#            - name=LoggingFilter
+#      discovery:
+#        locator:
+#          enabled: true
+#          lower-case-service-id: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
