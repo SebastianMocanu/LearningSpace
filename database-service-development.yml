@@ -20,7 +20,12 @@ spring:
       ddl-auto: update
     show-sql: true
   datasource:
-    url: jdbc:mysql://localhost:3306/mydb
+    url: jdbc:mysql://localhost:3306/mydb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MYSQL
     username: myuser
     password: mypassword
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+
+
+    
