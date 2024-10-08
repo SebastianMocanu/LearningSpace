@@ -1,4 +1,3 @@
-
 spring:
   main:
     web-application-type: reactive
@@ -12,7 +11,7 @@ spring:
           filters:
             - StripPrefix=1
         - id: database
-          uri: lb://database-service/vehicleController
+          uri: lb://database-service
           predicates:
             - Path=/gateway-service/**
           filters:
