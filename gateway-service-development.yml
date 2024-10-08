@@ -12,11 +12,11 @@ spring:
           filters:
             - StripPrefix=1
         - id: database
-            uri: lb://database-service/vehicleController
-            predicates:
-              - Path=/gateway-service/**
-            filters:
-              - StripPrefix=1
+          uri: lb://database-service/vehicleController
+          predicates:
+            - Path=/gateway-service/**
+          filters:
+            - StripPrefix=1
 
 eureka:
   client:
