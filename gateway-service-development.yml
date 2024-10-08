@@ -1,14 +1,6 @@
 spring:
   main:
     web-application-type: reactive
-  #  cloud:
-  #    gateway:
-  #      routes:
-  #        - id: resource-service
-  #          uri: http://localhost:8080
-  #          predicates:
-  #            - Path=/resource-service/**
-
   cloud:
     gateway:
       routes:
@@ -18,20 +10,13 @@ spring:
             - Path=/gateway-service/**
           filters:
             - StripPrefix=1
-#            - name=LoggingFilter
-#      discovery:
-#        locator:
-#          enabled: true
-#          lower-case-service-id: true
-
       - id: database
-          uri: lb://database-service
+          uri: lb://database-service/vehicleController
           predicates:
             - Path=/gateway-service/**
           filters:
             - StripPrefix=1
-#            - name=LoggingFilter
-
+            
 eureka:
   client:
     serviceUrl:
