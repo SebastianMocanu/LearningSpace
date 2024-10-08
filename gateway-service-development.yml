@@ -24,6 +24,14 @@ spring:
 #          enabled: true
 #          lower-case-service-id: true
 
+      - id: database
+          uri: lb://database-service
+          predicates:
+            - Path=/gateway-service/**
+          filters:
+            - StripPrefix=1
+#            - name=LoggingFilter
+
 eureka:
   client:
     serviceUrl:
