@@ -9,7 +9,7 @@ GatewayService
 - eureka-client client
 - config-service client
 - system entrypoint
-- request routing to: resource-service, database-service
+- request routing to: resource-service, database-service (NOT WORKING)
 - TODO: authentication and service level authorization
 
 
