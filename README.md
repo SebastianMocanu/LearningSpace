@@ -21,6 +21,7 @@ DatabaseService
 - basic database interractions based on JpaRepository like CRUD operations or filtered querying
 - loose coupling between controller, service and repository layers
 - TODO: api authorization, unit testing, integration testing
+- TODO: gateway routed requests
 
 EurekaService
 - service discovery
